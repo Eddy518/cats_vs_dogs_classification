@@ -1,0 +1,7 @@
+data/
+src/gui_old.py
+src/gui_qt.py
+temp/
+verify/
+archive.zip
+data.zip
