@@ -80,7 +80,8 @@ class MainWindow(QMainWindow):
         """)
 
         # Create temp directory if it doesn't exist
-        self.temp_dir = os.path.abspath("../temp")
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        self.temp_dir = os.path.join(current_dir, "temp")
         if not os.path.exists(self.temp_dir):
             os.makedirs(self.temp_dir)
         else:
@@ -98,7 +99,8 @@ class MainWindow(QMainWindow):
         self.current_image_path = None
 
         # Model logic
-        self.model = load_model('../model/cats_vs_dogs_1.keras')
+        model_path = os.path.join("../", "model", "cats_vs_dogs_1.keras")
+        self.model = load_model(model_path)
         self.classes = {
             0: 'The image you uploaded is a cat\'s image',
             1: 'The image you uploaded is a dog\'s image'
